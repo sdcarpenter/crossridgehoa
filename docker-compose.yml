@@ -31,14 +31,14 @@ services:
     networks:
       - hoa-app-network
   
-  webserver:
+  nginx:
     depends_on:
       - wordpress
     image: nginx:1.16-alpine
-    container_name: webserver
+    container_name: nginx
     restart: unless-stopped
     ports:
-      - "80:8080"
+      - "8080:80"
     volumes:
       - hoa-wordpress:/var/www/html
       - ./nginx-conf:/etc/nginx/conf.d
