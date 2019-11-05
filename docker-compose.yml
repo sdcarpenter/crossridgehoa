@@ -28,6 +28,7 @@ services:
       - WORDPRESS_DB_NAME=wordpress
     volumes:
       - hoa-wordpress:/var/www/html
+      - ./php-conf/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
     networks:
       - hoa-app-network
   
