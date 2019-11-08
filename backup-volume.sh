@@ -1,0 +1,10 @@
+VOLUME=
+
+case "$1" in
+    hoa-wordpress|hoa-dbdata) VOLUME=$1;;
+    *) echo "Unknown container"; exit 1 ;;
+esac
+
+docker run --rm \
+    -v crossridge-hoa_$VOLUME:/source:ro \
+    busybox tar -czC /source . > $VOLUME-backup.tar.gz
