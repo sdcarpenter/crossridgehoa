@@ -6,5 +6,5 @@ case "$1" in
 esac
 
 docker run --rm \
-    -v crossridge-hoa_$VOLUME:/source:ro \
+    -v crossridgehoa_$VOLUME:/source:ro \
     busybox tar -czC /source . > $VOLUME-backup.tar.gz
