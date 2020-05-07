@@ -1,7 +1,7 @@
 VOLUME=
 
 case "$1" in
-    hoa-wordpress|hoa-dbdata|certbot-etc) VOLUME=$1;;
+    nginx|hoa-dbdata|certbot-etc) VOLUME=$1;;
     *) echo "Unknown container"; exit 1 ;;
 esac
 
