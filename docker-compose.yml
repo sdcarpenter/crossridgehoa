@@ -28,13 +28,14 @@ services:
       - WORDPRESS_DB_NAME=wordpress
     volumes:
       - ./php-conf/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
-      - nginx:/var/www
+      - nginxconfig_nginx:/var/www
     networks:
       - nginxconfig_app-network
 
 volumes:
   hoa-dbdata:
-  nginx:
+  nginxconfig_nginx:
+    external: true
 
 networks:
   nginxconfig_app-network:
