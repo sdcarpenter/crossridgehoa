@@ -12,7 +12,7 @@ services:
       - hoa-dbdata:/var/lib/mysql
     command: '--default-authentication-plugin=mysql_native_password'
     networks:
-      - nginxconfig_app-network
+      - app-network
 
   wordpress:
     depends_on: 
@@ -30,7 +30,7 @@ services:
       - ./php-conf/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
       - nginxconfig_nginx:/var/www
     networks:
-      - nginxconfig_app-network
+      - app-network
 
 volumes:
   hoa-dbdata:
@@ -38,5 +38,5 @@ volumes:
     external: true
 
 networks:
-  nginxconfig_app-network:
-    external: true
+  app-network:
+    driver: bridge
